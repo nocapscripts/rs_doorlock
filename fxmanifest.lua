@@ -10,7 +10,7 @@ shared_scripts {
     '@ox_lib/init.lua',
     'config.lua',
     'configs/*.lua',
-    '@rs_base/shared/locale.lua',
+    '@qb-core/shared/locale.lua',
     'locales/en.lua',
     'locales/*.lua'
 }
