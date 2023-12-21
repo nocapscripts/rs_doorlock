@@ -1,5 +1,5 @@
 Config = {}
-
+Config.Core = "qb-core"
 Config.CommandPermission = 'god' -- permission level for creating new doors
 Config.AdminAccess = true -- Enable admins to unlock any door
 Config.AdminPermission = 'god' -- The permission needed to get AdminAccess if it is enabled
