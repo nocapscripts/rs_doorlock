@@ -33,13 +33,13 @@ AddEventHandler('rs_doors:initialize', function(allDoors)
 		if type(door.doors[1].objName) == "number" then
 			AddDoorToSystem(doorsId+1, door.doors[1].objName, door.doors[1].objCoords)
 		else
-			AddDoorToSystem(doorsId+1, GetHashKey(door.doors[1].objName), door.doors[1].objCoords)
+			AddDoorToSystem(doorsId+1, joaat(door.doors[1].objName), door.doors[1].objCoords)
 		end
 
 		if type(door.doors[2].objName) == "number" then
 			AddDoorToSystem(doorsId+2, door.doors[2].objName, door.doors[2].objCoords)
 		else
-			AddDoorToSystem(doorsId+2, GetHashKey(door.doors[2].objName), door.doors[2].objCoords)
+			AddDoorToSystem(doorsId+2, joaat(door.doors[2].objName), door.doors[2].objCoords)
 		end
 
             DoorSystemSetDoorState(doorsId+1, door.locked and 1 or 0)
@@ -48,7 +48,7 @@ AddEventHandler('rs_doors:initialize', function(allDoors)
 		if type(door.objName) == "number" then
 			AddDoorToSystem(doorId, door.objName, door.objCoords)
 		else
-			AddDoorToSystem(doorId, GetHashKey(door.objName), door.objCoords)
+			AddDoorToSystem(doorId, joaat(door.objName), door.objCoords)
 		end
             DoorSystemSetDoorState(doorId, door.locked and 1 or 0)
         end

@@ -105,12 +105,13 @@ local function isAuthorized(Player, door, usedLockpick)
 	return false
 end
 
+local resourceName = GetCurrentResourceName()
 local function SaveDoorStates()
-    SaveResourceFile(GetCurrentResourceName(), "./saves/doorstates.json", json.encode(Config.DoorStates), -1)
+    SaveResourceFile(resourceName, "./saves/doorstates.json", json.encode(Config.DoorStates), -1)
 end
 
 local function LoadDoorStates()
-	local DoorStates = LoadResourceFile(GetCurrentResourceName(), "./saves/doorstates.json")
+	local DoorStates = LoadResourceFile(resourceName, "./saves/doorstates.json")
 	if DoorStates then
 		DoorStates = json.decode(DoorStates)
 		if not next(DoorStates) then return end
@@ -217,7 +218,7 @@ RegisterNetEvent('rs_doorlock:server:saveNewDoor', function(data, doubleDoor)
 		configData.fixText = true
 	end
 
-	local path = GetResourcePath(GetCurrentResourceName())
+	local path = GetResourcePath(resourceName)
 
 	if data[1] then
 		local tempfile, err = io.open(path:gsub('//', '/')..'/configs/'..string.gsub(data[1], ".lua", "")..'.lua', 'a+')
@@ -277,7 +278,7 @@ RegisterNetEvent('rs_doorlock:server:saveNewDoor', function(data, doubleDoor)
 end)
 
 AddEventHandler('onResourceStart', function(resource)
-    if GetCurrentResourceName() == resource and Config.PersistentDoorStates then
+    if resourceName == resource and Config.PersistentDoorStates then
 		CreateThread(function()
 			LoadDoorStates()
 			Wait(1000)
@@ -290,7 +291,7 @@ AddEventHandler('onResourceStart', function(resource)
 end)
 
 AddEventHandler('onResourceStop', function(resource)
-    if GetCurrentResourceName() == resource and Config.PersistentDoorStates then
+    if resourceName == resource and Config.PersistentDoorStates then
 		SaveDoorStates()
     end
 end)
