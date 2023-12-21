@@ -1,7 +1,5 @@
 ## Doorlock
-This is doorlocking system for QBcore servers
-Converted from defautl qb to ox_lib
-Might be updated i dont know
+This is doorlocking system for QBcore servers converted from default to ox_lib it might need update i dont know!
 
 
 ## Depedencies
