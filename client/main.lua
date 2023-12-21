@@ -1,4 +1,4 @@
-local NPX = exports['rs_base']:GetCoreObject()
+local NPX = exports[Config.Core]:GetCoreObject()
 local PlayerData = NPX.Functions.GetPlayerData()
 local isLoggedIn = LocalPlayer.state['isLoggedIn']
 local Config = Config

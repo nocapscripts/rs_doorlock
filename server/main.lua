@@ -1,4 +1,4 @@
-local NPX = exports['rs_base']:GetCoreObject()
+local NPX = exports[Config.Core]:GetCoreObject()
 
 -- Functions
 
